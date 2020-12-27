@@ -1,0 +1,44 @@
+
+# this is the serial config for the tracker program
+# in this case, it is MacDoppler
+serial:
+  device: '/dev/ttyUSB1'
+  baud: 57600
+
+#
+# REQUIRED resolver module
+#
+resolver:
+  module: 'stubresolver'
+  class: 'StubResolver'
+  config: 'stubrotor'
+
+# 
+# REQUIRED positioner module
+#
+positioner:
+  module: 'stubpositioner'
+  class: 'StubPositioner'
+  config: 'stubrotor'
+
+stubrotor:
+  up: '/dev/shm/up'
+  down: '/dev/shm/down'
+  cw: '/dev/shm/cw'
+  ccw: '/dev/shm/ccw'
+  el_out: '/dev/shm/el'
+  az_out: '/dev/shm/az'
+  el_timeout: 90
+  az_timeout: 90
+  thread_sleep: 0.66
+  az_v_multiplier: .01
+  el_v_multiplier: .01
+  az_v_correction: 2
+  el_v_correction: 2 
+  az_max: 450
+  el_max: 180
+  relays:
+    up: 'RELAY1'
+    down: 'RELAY2'
+    cw: 'RELAY3'
+    ccw: 'RELAY4'

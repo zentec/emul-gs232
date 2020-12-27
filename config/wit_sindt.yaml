@@ -1,0 +1,36 @@
+
+# this is the serial config for the tracker program
+# in this case, it is MacDoppler
+serial:
+  device: '/dev/ttyUSB1'
+  baud: 57600
+
+#
+# REQUIRED resolver module
+#
+resolver:
+  module: 'wit_sindt_resolver'
+  class: 'Wit_SinDT_Resolver'
+  config: 'witsindt'
+
+witsindt:
+  port: "/dev/ttyUSB0"
+  baud: 9600
+ 
+# 
+# REQUIRED positioner module
+#
+positioner:
+  module: 'relaypositioner'
+  class: 'RelayPositioner'
+  config: 'relaypositioner'
+
+relaypositioner:
+  el_timeout: 90
+  az_timeout: 90
+  thread_sleep: 0.66
+  relays:
+    up: 'RELAY1'
+    down: 'RELAY2'
+    cw: 'RELAY3'
+    ccw: 'RELAY4'

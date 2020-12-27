@@ -1,0 +1,50 @@
+
+# this is the serial config for the tracker program
+# in this case, it is MacDoppler
+serial:
+  device: '/dev/ttyUSB0'
+  baud: 300
+
+#
+# REQUIRED resolver module
+#
+resolver:
+  module: 'wit_sindt_resolver'
+  class: 'Wit_SinDT_Resolver'
+  config: 'wit_sindt_resolver_config'
+
+# 
+# REQUIRED positioner module
+#
+positioner:
+  module: 'pelco-pan-tilt'
+  class: 'PelcoPanTilt'
+  config: False 
+
+#
+# Module config sections
+#
+
+wit_sindt_resolver_config:
+  port: '/dev/ttyUSB1'
+  baud: '9600'
+
+relays:
+  module: 'gpiorelay'
+  class: 'GPIORelay'
+  up: 'RELAY1'
+  down: 'RELAY2'
+  cw: 'RELAY3'
+  ccw: 'RELAY4'
+
+ads1115_resolver:
+   i2c_buss: 1
+   i2c_address: 0x48
+   az_channel: 2
+   el_channel: 3
+   thread_sleep: .2
+   az_v_multiplier: .01
+   el_v_multiplier: .01
+   az_v_correction: 2
+   el_v_correction: 2 
+
