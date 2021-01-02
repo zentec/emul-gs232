@@ -162,4 +162,5 @@ class RelayPositioner:
                  def_high()
                  time.sleep(.2)
              def_stop()
+        stop_flag = False
 
